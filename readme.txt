@@ -1,0 +1,1 @@
+nécessite le plug push pour envoie vers smart

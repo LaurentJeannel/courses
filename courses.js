@@ -1,4 +1,4 @@
-exports.action = function(data) {
+exports.action = (data) => {//nécéssite plug push pour envoie sur smart
 console.log(data+JarvisIA.reco)
 
   var filePath = path.resolve('%CD%', './plugins/courses/coursesmemoire.json').replace('\\%CD%', '');
@@ -20,7 +20,7 @@ if (data.courses == "on") {
   else {
          JarvisIASpeech(query+" ajouté à la liste de course")
          objet.push(query); var new_jsonStr = JSON.stringify(objet);        
-         fs.writeFile(filePath,new_jsonStr , function (err) {});//fin fs write
+         fs.writeFile(filePath,new_jsonStr ,  (err) => {});//fin fs write
   }
   return
 }//fin if on
@@ -30,7 +30,7 @@ if (data.courses == "off") {
     if(objet.indexOf(query)==-1){JarvisIASpeech('inconnu');return}
     objet.splice(objet.indexOf(query) ,1);
     var new_jsonStr = JSON.stringify(objet);                           
-    fs.writeFile(filePath, new_jsonStr, function (err) {  if (err) throw err });
+    fs.writeFile(filePath, new_jsonStr,  (err) => {  if (err) throw err });
     return
 }//fin if
 
